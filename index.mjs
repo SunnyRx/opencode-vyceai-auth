@@ -215,13 +215,22 @@ export const VyceAIAuthPlugin = async () => ({
       if (!res || !res.ok) return [];
       const body = (await readJson(res)) || {};
       const list = Array.isArray(body.data) ? body.data : [];
-      return list
-        .filter((m) => m && typeof m.id === "string")
-        .map((m) => ({
-          id: m.id,
-          name: m.id,
-          limit: typeof m.context_window === "number" ? { context: m.context_window } : undefined,
-        }));
+      // magpie keeps models as a record keyed by model id, not as an array.
+      return Object.fromEntries(
+        list
+          .filter((m) => m && typeof m.id === "string")
+          .map((m) => [
+            m.id,
+            {
+              id: m.id,
+              name: m.id,
+              tool_call: true,
+              limit: {
+                context: typeof m.context_window === "number" ? m.context_window : 128000,
+              },
+            },
+          ]),
+      );
     },
   },
 });
