@@ -5,7 +5,7 @@
   "type": "module",
   "license": "MIT",
   "main": "./index.mjs",
-  "files": ["index.mjs", "README.md", "LICENSE"],
+  "files": ["index.mjs", "README.md", "LICENSE", "icon.svg"],
   "keywords": ["opencode", "opencode-plugin", "magpie", "vyceai", "provider"],
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/SunnyRx/opencode-vyceai-auth",
   "magpie": {
-    "icon": "https://vyceai.com/favicon.ico",
+    "icon": "https://raw.githubusercontent.com/SunnyRx/opencode-vyceai-auth/main/icon.svg",
     "summary": {
       "en": "Use your Vyce AI API key in magpie; shows balance and presses the daily reward.",
       "zh": "把 Vyce AI 的 API 密钥接进 magpie，显示余额并可领取每日奖励。"

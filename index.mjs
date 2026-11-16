@@ -61,6 +61,7 @@ export const VyceAIAuthPlugin = async () => ({
 
   auth: {
     provider: PROVIDER,
+    icon: "https://raw.githubusercontent.com/SunnyRx/opencode-vyceai-auth/main/icon.svg",
     methods: [
       {
         type: "api",
