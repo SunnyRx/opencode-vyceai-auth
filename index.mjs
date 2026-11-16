@@ -31,8 +31,9 @@ function credentialOf(auth) {
   const key = clean(auth?.key);
   let cookie = clean(md.cookie ?? md.session_cookie ?? md.sessionCookie);
   if (!cookie) return { key, cookie: "" };
-  // Accept a whole Cookie header ("a=1; b=2") or a bare value.
-  if (!cookie.includes("=")) cookie = `vyceai_session=${cookie}`;
+  // Accept a whole Cookie header ("a=1; b=2") or a bare value; vyceai's own
+  // session cookie is named `session`.
+  if (!cookie.includes("=")) cookie = `session=${cookie}`;
   return { key, cookie };
 }
 
