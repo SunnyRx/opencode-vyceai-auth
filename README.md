@@ -21,11 +21,24 @@ magpie plugin add SunnyRx/opencode-vyceai-auth
 | 问题 | 必填 | 从哪来 | 用途 |
 | --- | --- | --- | --- |
 | API 密钥 | 是 | vyceai 控制台 › API 密钥，形如 `sk-…` | 推理与模型列表 |
-| 控制台 Cookie | 否 | 浏览器开发者工具 › Application › Cookies › `vyceai.com`，复制整条 Cookie | 余额、连续签到、每日奖励 |
+| 控制台 Cookie | 否 | 见下方「怎么找到那条 Cookie」 | 余额、连续签到、每日奖励 |
 
 两个值都只保存在 magpie 本机的插件登录信息里（`~/.config/magpie/plugin-auth.json`），插件不会把它们发给 vyceai 以外的任何地方。
 
 **只填 API 密钥也能用**：对话和模型列表正常，只是看不到余额，签到按钮会提示缺少 Cookie。
+
+### 怎么找到那条 Cookie
+
+只需要一条：名字叫 **`session`**。
+
+1. 在已登录 vyceai 的浏览器里按 `F12`（或右键 › 检查）打开开发者工具。
+2. 切到 **Application / 应用** 标签，左侧 **Storage › Cookies** 下点开 `https://vyceai.com`。
+3. 在列表里找到 **Name = `session`** 的那一行，复制它的 **Value**（形如 `sess_…`，很长，带点号）。
+4. 把这条 Value 粘到 magpie 的登录提问里即可；带不带 `session=` 前缀都行。
+
+**不要复制这几条**：`_vfp_s`（设备指纹）、`cf_clearance`、`__cf_bm`、`CF_VERIFIED_DEVICE_*`、`_ga`、`OptanonConsent`。它们与登录态无关，粘进来反而会导致 401。
+
+如果列表里同名的 `session` 有好几条，选 Domain 是 `vyceai.com`（不是 `.vyceai.com` 的其它站点）且过期时间最晚的那条。
 
 ### Cookie 会过期
 

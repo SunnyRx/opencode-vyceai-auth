@@ -73,7 +73,7 @@ export const VyceAIAuthPlugin = async () => ({
             type: "password",
             key: "cookie",
             message:
-              "控制台 Cookie（可选：用于查余额和领每日奖励；没有就填 -。浏览器开发者工具 › Application › Cookies 里复制 vyceai.com 的整条 Cookie）",
+              "控制台 Cookie（可选）：开发者工具 › Application › Cookies › vyceai.com，复制 Name 为 session 的那条的 Value（sess_… 开头）。没有就填 -，对话仍可用",
             placeholder: "粘贴整条 Cookie，或直接回车跳过",
           },
         ],
