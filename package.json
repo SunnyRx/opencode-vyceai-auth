@@ -1,0 +1,22 @@
+{
+  "name": "opencode-vyceai-auth",
+  "version": "0.1.0",
+  "description": "Vyce AI provider plugin for magpie and OpenCode: API key sign-in, balance, daily check-in",
+  "type": "module",
+  "license": "MIT",
+  "main": "./index.mjs",
+  "files": ["index.mjs", "README.md", "LICENSE"],
+  "keywords": ["opencode", "opencode-plugin", "magpie", "vyceai", "provider"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SunnyRx/opencode-vyceai-auth.git"
+  },
+  "homepage": "https://github.com/SunnyRx/opencode-vyceai-auth",
+  "magpie": {
+    "icon": "https://vyceai.com/favicon.ico",
+    "summary": {
+      "en": "Use your Vyce AI API key in magpie; shows balance and presses the daily reward.",
+      "zh": "把 Vyce AI 的 API 密钥接进 magpie，显示余额并可领取每日奖励。"
+    }
+  }
+}
